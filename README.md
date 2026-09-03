@@ -38,7 +38,6 @@ Big Data_Nhóm Gia đình Haha/
 │       └── metrics.csv        # MAE, RMSE, MAPE, R² per ticker×model
 ├── Model/
 │   ├── pipeline.py            # PySpark pipeline (chạy offline)
-│   ├── Time_series_Modeling.py
 │   └── README_MODELS.md       # Tài liệu kỹ thuật chi tiết về pipeline
 ├── app.py                     # Streamlit dashboard
 ├── requirements.txt           # Dependencies cho Streamlit
