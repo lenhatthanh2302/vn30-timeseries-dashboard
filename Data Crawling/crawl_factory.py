@@ -96,10 +96,12 @@ def dismiss_ad(driver, timeout=8):
 def set_date_input(driver, wait, locator, date_str):
     el = wait.until(EC.element_to_be_clickable(locator))
     robust_click(driver, el)
-    el.send_keys(Keys.CONTROL + "a")
-    el.send_keys(Keys.DELETE)
-    el.clear()
-    el.send_keys(date_str)
+    driver.execute_script("arguments[0].value = arguments[1];", el, date_str)
+    driver.execute_script(
+        "arguments[0].dispatchEvent(new Event('input',  {bubbles:true}));"
+        "arguments[0].dispatchEvent(new Event('change', {bubbles:true}));",
+        el
+    )
     el.send_keys(Keys.ENTER)
 
 #%% - Load all rows
